@@ -1,5 +1,6 @@
 /* eslint-disable wdio/no-pause */
 'use strict';
+const assert = require('assert');
 
 describe('webdriverajax', function testSuite() {
   this.timeout(process.env.CI ? 100000 : 10000);
@@ -36,12 +37,21 @@ describe('webdriverajax', function testSuite() {
       await browser.setupInterceptor();
       await completedRequest('#button');
       console.log('getRequests().length', (await browser.getRequests({ includePending: true })).length);
+      console.log('hasPendingRequests', await browser.hasPendingRequests())
+      assert.equal(await browser.hasPendingRequests(), false);
+
       await browser.setupInterceptor();
       await completedRequest('#button');
       console.log('getRequests().length', (await browser.getRequests({ includePending: true })).length);
+      console.log('hasPendingRequests', await browser.hasPendingRequests())
+      assert.equal(await browser.hasPendingRequests(), false);
+
       await browser.setupInterceptor();
       await completedRequest('#button');
       console.log('getRequests().length', (await browser.getRequests({ includePending: true })).length);
+      console.log('hasPendingRequests', await browser.hasPendingRequests())
+      assert.equal(await browser.hasPendingRequests(), false);
+
       for (const r of await browser.getRequests({ includePending: true })) {
         console.log(r)
       }
