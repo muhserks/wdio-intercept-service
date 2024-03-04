@@ -36,24 +36,33 @@ describe('webdriverajax', function testSuite() {
       await browser.url('/get.html');
       await browser.setupInterceptor();
       await completedRequest('#button');
-      console.log('getRequests().length', (await browser.getRequests({ includePending: true })).length);
-      console.log('hasPendingRequests', await browser.hasPendingRequests())
+      console.log(
+        'getRequests().length',
+        (await browser.getRequests({ includePending: true })).length,
+      );
+      console.log('hasPendingRequests', await browser.hasPendingRequests());
       assert.equal(await browser.hasPendingRequests(), false);
 
       await browser.setupInterceptor();
       await completedRequest('#button');
-      console.log('getRequests().length', (await browser.getRequests({ includePending: true })).length);
-      console.log('hasPendingRequests', await browser.hasPendingRequests())
+      console.log(
+        'getRequests().length',
+        (await browser.getRequests({ includePending: true })).length,
+      );
+      console.log('hasPendingRequests', await browser.hasPendingRequests());
       assert.equal(await browser.hasPendingRequests(), false);
 
       await browser.setupInterceptor();
       await completedRequest('#button');
-      console.log('getRequests().length', (await browser.getRequests({ includePending: true })).length);
-      console.log('hasPendingRequests', await browser.hasPendingRequests())
+      console.log(
+        'getRequests().length',
+        (await browser.getRequests({ includePending: true })).length,
+      );
+      console.log('hasPendingRequests', await browser.hasPendingRequests());
       assert.equal(await browser.hasPendingRequests(), false);
 
       for (const r of await browser.getRequests({ includePending: true })) {
-        console.log(r)
+        console.log(r);
       }
     });
   });
