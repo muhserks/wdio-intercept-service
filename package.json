@@ -13,6 +13,7 @@
     "release:minor": "npm run release -- minor",
     "release:major": "npm run release -- major",
     "test": "wdio run ./test/wdio.conf.js",
+    "test-776": "wdio run ./test/wdio.conf.js --spec plugin_test2.js",
     "prepare": "husky"
   },
   "types": "./types/wdio-intercept-service.d.ts",
